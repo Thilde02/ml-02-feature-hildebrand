@@ -16,13 +16,13 @@ version: "0.1.0"
 date-released: "2026-06-16"
 
 authors:
-  - family-names: Case
-    given-names: Denise M.
+  - family-names: Hildebrand
+    given-names: Tiffany
     orcid: "https://orcid.org/0000-0001-6165-7389"
     affiliation: "Northwest Missouri State University, School of Computer Science and Information Systems, Maryville, MO, USA"
 
-repository-code: "https://github.com/denisecase/ml-02-features"
-url: "https://github.com/denisecase/ml-02-features"
+repository-code: "https://github.com/Thilde02/ml-02-feature-hildebrand"
+url: "https://github.com/Thilde02/ml-02-feature-hildebrand"
 license: MIT
 
 abstract: >
