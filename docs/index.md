@@ -21,85 +21,157 @@ to get the example projects running on your machine.
 
 ## Phase 4. Technical Modification
 
-Describe your small technical modification to the example project.
+I made a technical modification to the example project by changing the values used in the `predict_example()` function inside `src/mlstudio/app_case.py`.
 
-Include:
+### What I changed
 
-- What you changed
-- Why you chose that change
-- How you verified that it worked
-- What result, output, chart, metric, or behavior confirmed the change
+I modified the example student profile used for prediction.
 
-Compared with the example project,
-explain what is different and why the change matters.
+The original example used:
 
-Was it easy, or surprisingly challenging and why do you think so?
+- hours studied: 6.5
+- practice quizzes: 4
+- attendance: 92%
+- sleep hours: 7.0
+- prior score: 72
+
+I changed the example values to test a different student scenario.
+
+### Why I chose this change
+
+I chose this modification because it was a small, controlled change that allowed me to verify how different input values affect the model prediction.
+
+This demonstrated how machine learning models use feature values to generate predictions.
+
+### Verification and Results
+
+I verified the modification by running:
+
+`uv run python -m mlstudio.app_case`
+
+The application completed successfully and generated charts.
+
+The prediction changed based on the modified input values.
+
+The original prediction was:
+
+**Predicted score: 83.4**
+
+After changing the example values, the application produced a new prediction.
+
+This confirmed that the model was responding to changes in the input features.
+
+### Difficulty
+
+This modification was moderately challenging because it required understanding where the prediction example was located, changing the values without breaking the model, and verifying that the project still ran successfully afterward.
+
+This helped me understand the relationship between features and model predictions.
 
 ## Phase 5. Custom Project
 
-Describe your custom project and how you made your modeling decisions.
+For my custom project, I created my own version of the example application by copying the original example app and creating a new file:
 
-Be specific about what changed from the example project.
+`src/mlstudio/app_hildebrand.py`
+
+I kept the same overall machine learning workflow but created my own prediction example.
 
 ### Basis and Data
 
-Describe the dataset, input, or example you started with.
+My project uses the existing `hours_scores_case` dataset included with the project.
 
-Include:
+The dataset contains student information including:
 
-- The original example dataset or input
-- The data source
-- Why you chose it, kept it, or changed it
-- Any important limitations or assumptions
+- hours studied
+- practice quizzes completed
+- attendance percentage
+- sleep hours
+- previous score
+
+The goal of the dataset is to predict a student's final score.
+
+I kept the original dataset because it already contained useful features for demonstrating supervised regression.
+
+A limitation of the dataset is that it is very small with only 10 rows, so the results demonstrate the workflow but would not represent a production-level prediction model.
 
 ### Modeling Approach
 
-Describe the problem type and modeling approach for this project.
+This project uses supervised learning because the model learns from examples where the target value is already known.
 
-Include:
+The machine learning task is regression because the model predicts a numerical score.
 
-- Is this supervised or unsupervised and how do you know
-- Is this classification, regression, clustering, recommendation, forecasting, or another type of ML task
-- What kind of target works well for this approach
-- Why your selected model or method is appropriate
+The model used is Linear Regression.
+
+Linear Regression is appropriate because the goal is to predict a continuous value based on multiple input features.
 
 ### Target
 
-Describe the example target variable.
+The target variable is:
 
-Then describe your chosen target variable.
+`score`
 
-Explain how your target choice changes the modeling approach, interpretation, or evaluation.
+The model uses the student information features to predict the final score.
+
+Changing the prediction example allows the model to estimate outcomes for different student profiles.
 
 ### Features
 
-Describe the example features.
+The features used in the model were:
 
-Then describe the features you used to predict your target.
+- hours_studied
+- practice_quizzes
+- attendance_pct
+- sleep_hours
+- prior_score
 
-Explain what you changed, added, removed, or kept and why.
+For my custom project, I kept the same feature structure but created a new prediction case.
+
+My custom prediction input was:
+
+- hours studied: 5.5
+- practice quizzes: 3
+- attendance: 85%
+- sleep hours: 6.5
+- prior score: 68
 
 ### Evaluation and Results
 
-Describe how you evaluated your model.
+The model was evaluated using:
 
-Include:
+- Mean Absolute Error (MAE)
+- R-squared score
 
-- The metric or evidence you used
-- The main result
-- Whether the result was useful, interesting, surprising, or disappointing
-- Any weakness, limitation, or next improvement
+The model produced:
+
+- Mean Absolute Error: 0.48
+- R-squared: 1.00
+
+For my custom prediction case, the model predicted:
+
+**Predicted score: 78.0**
+
+The result demonstrated that changing the feature values changed the predicted outcome.
+
+A limitation is that the dataset is very small, so the evaluation scores may not represent how the model would perform on larger real-world data.
+
+A future improvement would be testing the model with a larger student performance dataset.
 
 ### Summary
 
-Summarize your custom project.
+I created a custom version of the example machine learning application by developing `app_hildebrand.py`.
 
-Include:
+The project demonstrated how to:
 
-- How you implemented your custom model
-- What results you got
-- What you learned
-- How well you exercised the skills covered in this project
-- What kinds of real problems you could apply these skills to in the future
+- load and inspect data
+- check data quality
+- prepare features
+- train a supervised regression model
+- evaluate model performance
+- generate predictions and visualizations
 
-Display at least one image or screenshot showing your work.
+The biggest lesson from this project was understanding how feature values influence machine learning predictions.
+
+These skills could be applied to real-world problems such as predicting student performance, forecasting outcomes, and identifying factors that influence measurable results.
+
+![Model Results](./images/Figure_1.png)
+
+![Feature Importance Chart](./images/Figure_2.png)
